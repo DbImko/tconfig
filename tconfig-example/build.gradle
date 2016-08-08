@@ -1,0 +1,20 @@
+apply(plugin: 'application')
+
+dependencies {
+
+    compile project(":tconfig")
+    compile project(":tconfig-apache-commons-configuration")
+    provided project(":tconfig-processor")
+}
+
+task systemExample(type: JavaExec) {
+    classpath sourceSets.main.runtimeClasspath
+    main = "tconfig.example.SystemPropertiesExample"
+}
+
+task apacheExample(type: JavaExec) {
+    classpath sourceSets.main.runtimeClasspath
+    main = "tconfig.example.ApacheConfigurationExample"
+}
+
+mainClassName = "tconfig.example.SystemPropertiesExample"
