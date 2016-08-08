@@ -8,11 +8,11 @@ public class Version {
     private Integer minor;
 
     private Integer patch;
-
+    
     /**
      * BUILD_NUMBER or special value like SNAPSHOT
      */
-    private def build;
+    def build;
 
     public Version(final String version) {
         Objects.requireNonNull(version);
@@ -43,11 +43,7 @@ public class Version {
 
     @Override
     public String toString() {
-        return '' + (major != null ? major : '') +
-                (minor != null ? '.' + minor : '') +
-                (patch != null ? '.' + patch : '') +
-                ((major != null || minor != null || patch != null) ? '-' : '') +
-                (build != null ? build : 'SNAPSHOT');
+        return "$major.$minor.$patch.$build";
     }
 
 }
