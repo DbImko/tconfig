@@ -16,3 +16,8 @@ The configuration implementations are generated automatically!
 ```
 ./gradlew clean build tconfig-example:apacheExample
 ```
+
+### Roadmap
+
+* documentation generation
+* injecting configuration
