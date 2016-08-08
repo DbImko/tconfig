@@ -1,6 +1,6 @@
-
 subprojects {
     apply(plugin: 'tconfig.gradle.java-plugin')
+    apply(plugin: 'tconfig.gradle.version-plugin')
     apply(plugin: 'maven-publish')
 
     repositories {

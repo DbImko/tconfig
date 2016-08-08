@@ -10,6 +10,10 @@ gradlePlugin {
             id = "tconfig.gradle.java-plugin"
             implementationClass = "tconfig.gradle.JavaPlugin"
         }
+        tconfigVersionPlugin {
+            id = "tconfig.gradle.version-plugin"
+            implementationClass = "tconfig.gradle.VersionPlugin"
+        }
     }
 }
 
