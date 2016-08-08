@@ -1,4 +1,50 @@
+plugins {
+    id "com.jfrog.bintray" version "1.7"
+}
+
 dependencies {
     compile project(":tconfig")
     compile("commons-configuration:commons-configuration:1.10")
+}
+
+
+task sourcesJar(type: Jar, dependsOn: classes) {
+    classifier = 'sources'
+    from(sourceSets.main.allSource)
+}
+
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier = 'javadoc'
+    from(javadoc.destinationDir)
+}
+
+artifacts {
+    archives(sourcesJar, javadocJar)
+}
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            from(components.java)
+            artifact(sourcesJar)
+            artifact(javadocJar)
+        }
+    }
+}
+
+bintray {
+    user = System.getenv('bintray_user')
+    key = System.getenv('bintray_api_key')
+    publish = true
+    pkg {
+        publications = ['maven']
+        repo = 'maven'
+        userOrg = 'dbimko'
+        name = project.name
+        desc = project.description
+        websiteUrl = 'https://github.com/DbImko/tconfig'
+        vcsUrl = 'https://github.com/DbImko/tconfig'
+        licenses = ['Apache-2.0']
+        publicDownloadNumbers = true
+    }
 }

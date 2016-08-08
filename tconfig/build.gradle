@@ -44,6 +44,5 @@ bintray {
         vcsUrl = 'https://github.com/DbImko/tconfig'
         licenses = ['Apache-2.0']
         publicDownloadNumbers = true
-        override = true
     }
 }
