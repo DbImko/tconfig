@@ -1,0 +1,26 @@
+plugins {
+    id('groovy')
+    id('java-gradle-plugin')
+}
+
+
+gradlePlugin {
+    plugins {
+        tconfigJavaPlugin {
+            id = "tconfig.gradle.java-plugin"
+            implementationClass = "tconfig.gradle.JavaPlugin"
+        }
+    }
+}
+
+repositories {
+    mavenCentral()
+    jcenter()
+}
+
+dependencies {
+    compile gradleApi()
+}
+
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
