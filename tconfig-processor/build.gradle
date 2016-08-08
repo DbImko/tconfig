@@ -1,0 +1,7 @@
+dependencies {
+    compile project(':tconfig')
+    compile("com.squareup:javapoet:$javaPoetsVersion")
+    provided("org.projectlombok:lombok:$lombokVersion")
+
+    testCompile("junit:junit:$junitVersion")
+}
