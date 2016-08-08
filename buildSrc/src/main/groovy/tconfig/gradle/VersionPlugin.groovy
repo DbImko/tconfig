@@ -11,9 +11,13 @@ public class VersionPlugin implements Plugin<Project> {
         if (!(project.version instanceof Version)) {
             project.version = new Version(project.version as String);
         }
-        def buildNumber = project.getProperty('BUILD_NUMBER')
-        if (buildNumber != null) {
-            project.version.build = buildNumber as Integer;
+        if (project.hasProperty('BUILD_NUMBER')) {
+            def buildNumber = project.getProperty('BUILD_NUMBER')
+            if (buildNumber != null) {
+                project.version.build = buildNumber as Integer;
+            }
+        } else {
+            project.version.build = 'SNAPSHOT';
         }
     }
 }
