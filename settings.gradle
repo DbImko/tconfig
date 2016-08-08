@@ -1,0 +1,5 @@
+rootProject.name='tconfig-root'
+include('tconfig')
+include('tconfig-processor')
+include('tconfig-apache-commons-configuration')
+include('tconfig-example')
