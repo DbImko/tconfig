@@ -4,8 +4,8 @@ jdk:
   - oraclejdk8
 
 before_install:
-- echo "Travis build id is $TRAVIS_BUILD_ID"
+- echo "Travis build id is $TRAVIS_JOB_ID"
 
 script:
  - jdk_switcher use oraclejdk8
- - ./gradlew clean build bintrayUpload -P BUILD_NUMER=$TRAVIS_BUILD_ID
+ - ./gradlew clean build bintrayUpload -P BUILD_NUMER=$TRAVIS_JOB_ID
