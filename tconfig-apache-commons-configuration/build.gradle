@@ -1,0 +1,4 @@
+dependencies {
+    compile project(":tconfig")
+    compile("commons-configuration:commons-configuration:1.10")
+}
