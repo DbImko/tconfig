@@ -1,0 +1,20 @@
+
+subprojects {
+    apply(plugin: 'tconfig.gradle.java-plugin')
+    apply(plugin: 'maven-publish')
+
+    repositories {
+        mavenCentral()
+        jcenter()
+    }
+
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+
+    dependencies {
+    }
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.14'
+}
