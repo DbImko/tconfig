@@ -3,7 +3,7 @@ plugins {
 }
 
 dependencies {
-    provided("org.projectlombok:lombok:$lombokVersion")
+    compileOnly("org.projectlombok:lombok:$lombokVersion")
 }
 
 task sourcesJar(type: Jar, dependsOn: classes) {

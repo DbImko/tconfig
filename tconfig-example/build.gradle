@@ -1,10 +1,9 @@
 apply(plugin: 'application')
 
 dependencies {
-
     compile project(":tconfig")
     compile project(":tconfig-apache-commons-configuration")
-    provided project(":tconfig-processor")
+    compileOnly project(":tconfig-processor")
 }
 
 task systemExample(type: JavaExec) {
