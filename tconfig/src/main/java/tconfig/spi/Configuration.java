@@ -1,5 +1,7 @@
 package tconfig.spi;
 
+import java.util.List;
+
 /**
  * Defines the contract for typed configuration
  */
@@ -76,4 +78,25 @@ public interface Configuration {
      */
     boolean getBoolean(String key, boolean defaultValue);
 
+
+    /**
+     * Get a list of typed objects associated with the given configuration key
+     *
+     * @param <T> The type expected for the elements of the list
+     * @param cls The class expected for the elements of the list
+     * @param key The configuration key.
+     * @return The associated list if the key is found.
+     */
+    <T> List<T> getList(Class<T> cls, String key);
+
+    /**
+     * Get a list of typed objects associated with the given configuration key
+     *
+     * @param <T>          The type expected for the elements of the list
+     * @param cls          The class expected for the elements of the list
+     * @param key          The configuration key.
+     * @param defaultValue The default value.
+     * @return The associated list if the key is found.
+     */
+    <T> List<T> getList(Class<T> cls, String key, List<T> defaultValue);
 }
