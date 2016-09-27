@@ -2,4 +2,5 @@ rootProject.name='tconfig-root'
 include('tconfig')
 include('tconfig-processor')
 include('tconfig-apache-commons-configuration')
+include('tconfig-apache-commons-configuration2')
 include('tconfig-example')
