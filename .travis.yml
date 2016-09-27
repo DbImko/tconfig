@@ -7,9 +7,6 @@ branches:
   only:
     - master
 
-before_install:
-- echo "Travis build id is $TRAVIS_BUILD_NUMBER"
-
 script:
  - jdk_switcher use oraclejdk8
  - ./gradlew clean build bintrayUpload
