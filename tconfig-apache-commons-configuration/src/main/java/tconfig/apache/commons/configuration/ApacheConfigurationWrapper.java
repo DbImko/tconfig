@@ -3,6 +3,7 @@ package tconfig.apache.commons.configuration;
 
 import tconfig.spi.Configuration;
 
+import java.util.List;
 import java.util.Objects;
 
 public class ApacheConfigurationWrapper implements Configuration {
@@ -52,5 +53,15 @@ public class ApacheConfigurationWrapper implements Configuration {
     @Override
     public boolean getBoolean(String key, boolean defaultValue) {
         return delegate.getBoolean(key, defaultValue);
+    }
+
+    @Override
+    public <T> List<T> getList(Class<T> cls, String key) {
+        return (List<T>) delegate.getList(key);
+    }
+
+    @Override
+    public <T> List<T> getList(Class<T> cls, String key, List<T> defaultValue) {
+        return (List<T>) delegate.getList(key, defaultValue);
     }
 }
