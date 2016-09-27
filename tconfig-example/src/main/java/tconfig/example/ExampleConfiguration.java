@@ -1,9 +1,9 @@
 package tconfig.example;
 
-import tconfig.spi.Configuration;
 import tconfig.TConfigFactory;
 import tconfig.annotation.TConfig;
 import tconfig.annotation.TConfigProperty;
+import tconfig.spi.Configuration;
 
 @TConfig
 public interface ExampleConfiguration {
@@ -15,4 +15,7 @@ public interface ExampleConfiguration {
 
     @TConfigProperty(key = "tconfig.test.string.property", defaultValue = "TEST")
     String testProperty(Configuration configuration);
+
+    @TConfigProperty(key = "tconfig.test.string.property1")
+    String testPropertyWithEmptyDefault(Configuration configuration);
 }

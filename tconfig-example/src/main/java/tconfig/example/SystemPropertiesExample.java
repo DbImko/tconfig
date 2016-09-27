@@ -3,6 +3,8 @@ package tconfig.example;
 
 import tconfig.spi.Configuration;
 
+import java.util.List;
+
 public class SystemPropertiesExample {
 
     public static void main(String[] args) {
@@ -17,6 +19,9 @@ public class SystemPropertiesExample {
 
         int testIntValue = ExampleConfiguration.CONFIG.testIntProperty(config);
         assert testIntValue == 10;
+
+        String string = ExampleConfiguration.CONFIG.testPropertyWithEmptyDefault(config);
+        assert string == null;
     }
 
     private static class ConfigImpl implements Configuration {
@@ -59,6 +64,16 @@ public class SystemPropertiesExample {
         @Override
         public boolean getBoolean(String key, boolean defaultValue) {
             return Boolean.parseBoolean(System.getProperty(key, String.valueOf(defaultValue)));
+        }
+
+        @Override
+        public <T> List<T> getList(Class<T> cls, String key) {
+            throw new UnsupportedOperationException();
+        }
+
+        @Override
+        public <T> List<T> getList(Class<T> cls, String key, List<T> defaultValue) {
+            throw new UnsupportedOperationException();
         }
     }
 }
